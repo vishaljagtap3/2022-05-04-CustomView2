@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@id/imgProduct"
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/txtProductTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/txtProductTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/txtProductPrice"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

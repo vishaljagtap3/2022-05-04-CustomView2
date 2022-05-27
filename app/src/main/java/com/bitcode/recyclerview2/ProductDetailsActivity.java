@@ -13,8 +13,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private TextView txtProductTitle, txtProductPrice;
     private ImageView imgProduct;
 
-    private int id, price, imageId;
-    private String title;
+    /*private int id, price, imageId;
+    private String title;*/
+    private Product product;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,14 +28,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     private void extractInput() {
         Intent intent = getIntent();
-        id = intent.getIntExtra("id", -1);
+
+        product = (Product) intent.getSerializableExtra("product");
+        /*id = intent.getIntExtra("id", -1);
         title = intent.getStringExtra("title");
         price = intent.getIntExtra("price", 0);
         imageId = intent.getIntExtra("image_id", R.mipmap.ic_launcher);
 
         imgProduct.setImageResource(imageId);
         txtProductTitle.setText(title);
-        txtProductPrice.setText("Rs. " + price);
+        txtProductPrice.setText("Rs. " + price);*/
+
+        imgProduct.setImageResource(product.getImageId());
+        txtProductTitle.setText(product.getTitle());
+        txtProductPrice.setText("Rs. " + product.getPrice());
     }
 
     private void initViews() {

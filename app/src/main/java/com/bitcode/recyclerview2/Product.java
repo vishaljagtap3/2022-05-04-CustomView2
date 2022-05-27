@@ -1,6 +1,9 @@
 package com.bitcode.recyclerview2;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
+
     private int id;
     private String title;
     private int price;
