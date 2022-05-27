@@ -1,5 +1,6 @@
 package com.bitcode.recyclerview2;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,14 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 public void onClick(View v) {
                     Product product = products.get(getAdapterPosition());
                     Toast.makeText(v.getContext(), "Image Clicked: " + product.getTitle() , Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(v.getContext(), ProductDetailsActivity.class);
+                    intent.putExtra("id", product.getId());
+                    intent.putExtra("title", product.getTitle());
+                    intent.putExtra("image_id", product.getImageId());
+                    intent.putExtra("price", product.getPrice());
+
+                    v.getContext().startActivity(intent);
                 }
             });
 
@@ -45,6 +54,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 public void onClick(View v) {
                     Product product = products.get(getAdapterPosition());
                     Toast.makeText(v.getContext(), "Title Clicked: " + product.getTitle() , Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(v.getContext(), ProductDetailsActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
         }
