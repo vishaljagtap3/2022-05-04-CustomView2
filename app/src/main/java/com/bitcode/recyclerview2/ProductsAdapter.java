@@ -31,6 +31,22 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             imgProduct = itemView.findViewById(R.id.imgProduct);
             txtProductTitle = itemView.findViewById(R.id.txtProductTitle);
             txtProductPrice = itemView.findViewById(R.id.txtProductPrice);
+
+            imgProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Product product = products.get(getAdapterPosition());
+                    Toast.makeText(v.getContext(), "Image Clicked: " + product.getTitle() , Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            txtProductTitle.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Product product = products.get(getAdapterPosition());
+                    Toast.makeText(v.getContext(), "Title Clicked: " + product.getTitle() , Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
@@ -85,7 +101,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         holder.txtProductTitle.setText(product.getTitle());
         holder.txtProductPrice.setText("Rs. " + product.getPrice() );
 
-        holder.imgProduct.setOnClickListener(
+        /*holder.imgProduct.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,6 +117,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                         Toast.makeText(v.getContext(), "Title: " + product.getTitle(), Toast.LENGTH_LONG).show();
                     }
                 }
-        );
+        );*/
     }
 }
